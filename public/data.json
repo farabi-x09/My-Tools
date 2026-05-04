@@ -1,0 +1,155 @@
+[
+  {
+    "id": "pdt-001",
+    "name": "Manus AI",
+    "description": "A next-generation general-purpose AI agent designed to execute complex, multi-step digital tasks autonomously.",
+    "price": 20,
+    "period": "monthly",
+    "tag": "New",
+    "tagType": "new",
+    "features": [
+      "Autonomous task execution",
+      "Browser operator capabilities",
+      "Multi-tool integration",
+      "Real-time research",
+      "Complex workflow automation"
+    ],
+    "icon": "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/manus-ai-icon.png"
+  },
+  {
+    "id": "pdt-002",
+    "name": "Claude Pro",
+    "description": "An advanced AI assistant by Anthropic known for superior reasoning and Artifacts for real-time coding.",
+    "price": 200,
+    "period": "yearly",
+    "tag": "Popular",
+    "tagType": "popular",
+    "features": [
+      "Claude 3.5 & 3.6 model access",
+      "Artifacts UI for live previews",
+      "200k+ token context window",
+      "Advanced document analysis",
+      "Priority access"
+    ],
+    "icon": "https://api.iconify.design/logos:anthropic-icon.svg"
+  },
+  {
+    "id": "pdt-003",
+    "name": "Lovable Pro",
+    "description": "An AI-powered full-stack application builder that turns natural language prompts into production-ready web apps.",
+    "price": 25,
+    "period": "monthly",
+    "tag": "Best Seller",
+    "tagType": "best seller",
+    "features": [
+      "Prompt-to-deployed app",
+      "GitHub synchronization",
+      "Custom domain support",
+      "Full code export (React/TS)",
+      "AI-driven bug fixing"
+    ],
+    "icon": "https://api.iconify.design/material-symbols:auto-awesome-outline.svg"
+  },
+  {
+    "id": "pdt-004",
+    "name": "SEMrush Pro",
+    "description": "The industry-standard SEO and competitive intelligence suite for digital marketers and SEO specialists.",
+    "price": 139,
+    "period": "monthly",
+    "tag": "Popular",
+    "tagType": "popular",
+    "features": [
+      "Keyword research & tracking",
+      "Site audit & technical SEO",
+      "Competitor ad strategy analysis",
+      "Content optimization",
+      "Backlink analytics"
+    ],
+    "icon": "https://api.iconify.design/simple-icons:semrush.svg"
+  },
+  {
+    "id": "pdt-005",
+    "name": "Canva Teams",
+    "description": "A collaborative graphic design platform that empowers teams to create professional visual content.",
+    "price": 150,
+    "period": "yearly",
+    "tag": "Best Seller",
+    "tagType": "best seller",
+    "features": [
+      "140M+ premium stock assets",
+      "Magic Switch auto-resizing",
+      "Brand Kit & approval workflows",
+      "AI Text-to-Image generation",
+      "Team collaboration"
+    ],
+    "icon": "https://api.iconify.design/simple-icons:canva.svg"
+  },
+  {
+    "id": "pdt-006",
+    "name": "Motion AI",
+    "description": "An intelligent calendar and project management tool that automatically rebuilds your schedule.",
+    "price": 19,
+    "period": "monthly",
+    "tag": "Trending",
+    "tagType": "new",
+    "features": [
+      "AI-automated scheduling",
+      "Meeting booking pages",
+      "Task prioritization engine",
+      "Syncs with Google/Outlook",
+      "Project timeline visualization"
+    ],
+    "icon": "https://api.iconify.design/material-symbols:calendar-month-outline.svg"
+  },
+  {
+    "id": "pdt-007",
+    "name": "Cursor Pro",
+    "description": "An AI-native code editor designed for pair-programming with LLMs that understand your entire codebase.",
+    "price": 20,
+    "period": "monthly",
+    "tag": "Trending",
+    "tagType": "popular",
+    "features": [
+      "Codebase-wide indexing",
+      "AI 'Composer' for multi-file edits",
+      "Natural language terminal",
+      "Privacy-focused local mode",
+      "Instant documentation syncing"
+    ],
+    "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYQ_gB9kI3PCOyJYVNM517Atd8vsGREDO-Fw&s"
+  },
+  {
+    "id": "pdt-008",
+    "name": "Midjourney Basic",
+    "description": "Leading generative AI for high-fidelity artistic imagery and photorealistic visual content.",
+    "price": 96,
+    "period": "yearly",
+    "tag": "Best Seller",
+    "tagType": "best seller",
+    "features": [
+      "3.3 hours of GPU Fast time",
+      "Commercial usage rights",
+      "Access to member gallery",
+      "V6.1 model support",
+      "Advanced Inpainting"
+    ],
+    "icon": "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/midjourney-color-icon.png"
+  },
+  {
+    "id": "pdt-009",
+    "name": "Perplexity Pro",
+    "description": "An AI-powered answer engine that provides sourced, real-time information across the web.",
+    "price": 20,
+    "period": "monthly",
+    "tag": "Essential",
+    "tagType": "popular",
+    "features": [
+      "Unlimited Pro Search queries",
+      "Choice of GPT-4o or Claude 3.5",
+      "File upload for analysis",
+      "Daily $5 API credit",
+      "Research organization"
+    ],
+    "icon": "https://api.iconify.design/simple-icons:perplexity.svg"
+  }
+]
