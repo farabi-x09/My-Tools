@@ -33,7 +33,7 @@ const Card = ({ item }) => {
                     </ul>
                 </div>
                 <div>
-                    <button className=' btn bg-linear-to-r from-[#4F39F6] to-[#9514FA] text-white px-12 py-2 rounded-full'>Buy Now</button>
+                    <button className=' btn bg-linear-to-r from-[#4F39F6] to-[#9514FA] text-white px-12 py-2 rounded-full'>View</button>
                 </div>
             </div>
         </div>
