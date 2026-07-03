@@ -1,20 +1,91 @@
+
+
 'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
+import { authClient } from '@/lib/auth-client';
+import { toast } from 'sonner'; 
 
 const LoginPage = () => {
-    const [showPassword, setShowPassword] = useState(false);
+    const router = useRouter();
 
-    const handleSubmit = (e) => {
+    // Form States
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    
+    // UI & Validation States
+    const [showPassword, setShowPassword] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [errors, setErrors] = useState({
+        email: '',
+        password: ''
+    });
+
+    const validateForm = () => {
+        let isValid = true;
+        const newErrors = { email: '', password: '' };
+
+        if (!email) {
+            newErrors.email = 'Email is required.';
+            isValid = false;
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            newErrors.email = 'Please enter a valid email address.';
+            isValid = false;
+        }
+
+        if (!password) {
+            newErrors.password = 'Password is required.';
+            isValid = false;
+        }
+
+        setErrors(newErrors);
+        return isValid;
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-       
-        console.log("Login form submitted!");
+        
+        if (!validateForm()) {
+            toast.error("Please check the missing fields below.");
+            return;
+        }
+
+        setIsLoading(true);
+        setErrors({ email: '', password: '' });
+
+        try {
+            await authClient.signIn.email({
+                email,
+                password,
+            }, {
+                onRequest: () => {
+                    // Loading state is already set to true above
+                },
+                onSuccess: () => {
+                    toast.success("Welcome back!");
+                    router.push('/'); 
+                },
+                onError: (ctx) => {
+                    // This handles the wrong email/password toast
+                    const errorMessage = ctx.error?.message || "Invalid email or password. Please try again.";
+                    toast.error(errorMessage);
+                    
+                    // Clear the password field for better UX so they can try again quickly
+                    setPassword('');
+                    setIsLoading(false);
+                }
+            });
+        } catch (error) {
+            toast.error(error.message || "An unexpected error occurred.");
+            setIsLoading(false);
+        }
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-12">
+        <div className="min-h-[calc(100vh-100px)] flex items-center justify-center bg-gray-50 px-4 py-12">
             <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
                 
                 {/* Header Section */}
@@ -41,11 +112,14 @@ const LoginPage = () => {
                             </div>
                             <input
                                 type="email"
-                                className="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4F39F6] focus:border-transparent transition-all bg-gray-50 focus:bg-white"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className={`w-full pl-11 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4F39F6] focus:border-transparent transition-all bg-gray-50 focus:bg-white ${errors.email ? 'border-red-400 focus:ring-red-400' : 'border-gray-200'}`}
                                 placeholder="Enter your email"
-                                required
+                                disabled={isLoading}
                             />
                         </div>
+                        {errors.email && <p className="text-xs text-red-500 mt-1.5 ml-1">{errors.email}</p>}
                     </div>
 
                     {/* Password Input */}
@@ -54,12 +128,7 @@ const LoginPage = () => {
                             <label className="block text-sm font-semibold text-gray-700">
                                 Password
                             </label>
-                            <Link 
-                                href="/forgot-password" 
-                                className="text-sm font-semibold text-[#4F39F6] hover:text-[#9514FA] transition-colors"
-                            >
-                                Forgot password?
-                            </Link>
+                           
                         </div>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -67,9 +136,11 @@ const LoginPage = () => {
                             </div>
                             <input
                                 type={showPassword ? "text" : "password"}
-                                className="w-full pl-11 pr-12 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4F39F6] focus:border-transparent transition-all bg-gray-50 focus:bg-white"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className={`w-full pl-11 pr-12 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-[#4F39F6] focus:border-transparent transition-all bg-gray-50 focus:bg-white ${errors.password ? 'border-red-400 focus:ring-red-400' : 'border-gray-200'}`}
                                 placeholder="Enter your password"
-                                required
+                                disabled={isLoading}
                             />
                             
                             {/* Password Toggle Eye Icon */}
@@ -84,14 +155,16 @@ const LoginPage = () => {
                                 )}
                             </div>
                         </div>
+                        {errors.password && <p className="text-xs text-red-500 mt-1.5 ml-1">{errors.password}</p>}
                     </div>
 
                     {/* Submit Button */}
                     <button
                         type="submit"
-                        className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#4F39F6] to-[#9514FA] text-white font-semibold text-lg hover:shadow-lg hover:opacity-90 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#4F39F6]"
+                        disabled={isLoading}
+                        className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#4F39F6] to-[#9514FA] text-white font-semibold text-lg hover:shadow-lg hover:opacity-90 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#4F39F6] disabled:opacity-70 disabled:cursor-not-allowed"
                     >
-                        Sign In
+                        {isLoading ? "Signing In..." : "Sign In"}
                     </button>
                 </form>
 
