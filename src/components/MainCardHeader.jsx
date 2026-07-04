@@ -9,12 +9,7 @@ const MainCardHeaderPage = () => {
                     <p className='text-center text-lg text-taupe-400'>Choose from our curated collection of premium digital products designedto boost your productivity and creativity.</p>
                     <div className=' flex justify-center mt-10 '>
 
-                        <div className="tabs tabs-box gap-5 bg-transparent justify-center">
-                            <input type="radio" name="my_tabs_1" className="tab w-40 rounded-full [--tab-bg:#4F39F6] border-2 text-black checked:text-white  border-purple-500" aria-label="Products"  />
-
-                            <input type="radio" name="my_tabs_1" className="tab w-40 rounded-full [--tab-bg:#4F39F6]   border-2  text-black checked:text-white border-purple-500" aria-label="Cart" />
-
-                        </div>
+                     
                     </div>
                 </div>
 

@@ -9,6 +9,7 @@ import { User, Mail, Lock, Eye, EyeOff, Image as ImageIcon } from 'lucide-react'
 import { authClient } from '@/lib/auth-client';
 import { toast } from 'sonner'; // You can also use 'react-hot-toast'
 import Image from 'next/image';
+import { FcGoogle } from 'react-icons/fc';
 
 const RegisterPage = () => {
     const router = useRouter();
@@ -146,6 +147,20 @@ const RegisterPage = () => {
         }
     };
 
+    const handleGoogleLogin = async () => {
+    try {
+        setIsLoading(true);
+        // Better Auth er client instance theke direct social login trigger hobe
+        await authClient.signIn.social({
+            provider: "google",
+            callbackURL: "/" // Login er por jekhane redirect korte chao
+        });
+    } catch (error) {
+        toast.error("Google login failed. Please try again.");
+    } finally {
+        setIsLoading(false);
+    }
+};
     return (
         <div className="min-h-[calc(100vh-100px)] flex items-center justify-center bg-gray-50 px-4 py-12">
             <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
@@ -309,6 +324,27 @@ const RegisterPage = () => {
                     </button>
                 </form>
 
+
+{/* Divider */}
+<div className="relative my-8">
+    <div className="absolute inset-0 flex items-center">
+        <div className="w-full border-t border-gray-200"></div>
+    </div>
+    <div className="relative flex justify-center text-sm">
+        <span className="px-3 bg-white text-gray-500 font-medium">Or continue with</span>
+    </div>
+</div>
+
+{/* Google Login Button */}
+<button
+    type="button"
+    onClick={handleGoogleLogin}
+    disabled={isLoading}
+    className="w-full flex items-center justify-center gap-3 py-3 px-4 rounded-xl border border-gray-200 bg-white text-[#101727] font-semibold text-lg hover:bg-gray-50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 disabled:opacity-70 disabled:cursor-not-allowed shadow-sm"
+>
+   <FcGoogle className="text-2xl" />
+    Sign up with Google
+</button>
                 {/* Footer Section */}
                 <div className="mt-6 text-center">
                     <p className="text-sm text-gray-600">
