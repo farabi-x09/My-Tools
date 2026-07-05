@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🛠️ My Digi Tools
 
-## Getting Started
+A premium digital tools directory and subscription platform built with modern web technologies. Users can browse various digital tools, view details, add them to their cart, and proceed to checkout seamlessly.
+![alt text](image.png)
 
-First, run the development server:
+Live Link: https://my-tools-ashy.vercel.app/     
+GitHub repositories Link: https://github.com/farabi-x09/My-Tools
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* **Tool Directory:** Browse a wide range of premium digital tools, software, and subscriptions.
+* **Product Details:** View comprehensive details, pricing, and features of each individual tool.
+* **Shopping Cart System:** Add tools to the cart, view the total amount, and remove items. State is efficiently managed using React Context API and persisted via LocalStorage.
+* **Protected Routes:** Critical pages like Cart and Product Details are secured using Next.js Middleware. Users must be authenticated to access them.
+* **Authentication:** Secure user login and registration system powered by Better Auth.
+* **Interactive UI/UX:** Real-time toast notifications (React Hot Toast) for user actions like adding/removing items or successful checkout.
+* **Fully Responsive:** Beautifully designed and optimized for both mobile and desktop devices.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 💻 Technologies Used
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+* **Frontend Framework:** Next.js (App Router)
+* **UI Library:** React.js
+* **Styling:** Tailwind CSS & DaisyUI
+* **State Management:** React Context API
+* **Authentication:** Better Auth
+* **Notifications:** React Hot Toast
+* **Icons & Assets:** Lucide React / Custom SVGs
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Getting Started
 
-## Learn More
+Follow these steps to set up and run the project locally:
 
-To learn more about Next.js, take a look at the following resources:
+### Prerequisites
+Make sure you have Node.js and npm installed on your machine.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/your-username/my-digi-tools.git](https://github.com/your-username/my-digi-tools.git)

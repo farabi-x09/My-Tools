@@ -2,6 +2,7 @@ import React from 'react';
 import bannerImg from '@/assets/banner.png';
 import { CircleDot, Play } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Banner = () => {
     return (
@@ -25,8 +26,12 @@ const Banner = () => {
                         </p>
                     </div>
                     <div className='flex gap-5'>
-                        <button className='btn  btn-primary rounded-full'>Explore Products</button>
-                        <button className='btn btn-primary btn-outline rounded-full '> <Play></Play>  Watch Demo</button>
+                        <Link href="/products">
+                            <button className='btn  btn-primary rounded-full'>Explore Products</button>
+                        </Link>
+                        <a href="https://www.youtube.com/watch?v=TZe5UqlUg0c" target="_blank" rel="noopener noreferrer">
+                            <button className='btn btn-primary btn-outline rounded-full '> <Play></Play>  Watch Demo</button>
+                       </a>
                     </div>
                 </div>
                 
